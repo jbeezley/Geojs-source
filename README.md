@@ -89,9 +89,10 @@ shapes.  Some of the basic features currently implemented are as follows:
 1. `point`: One or more circles centered around an array of positions.
 ```javascript
 layer.createFeature("point")
-    .positions([{x: -100, y: 40}])
-    .style({"color": [1, 0, 0]});
+    .positions([{x: -100, y: 40}, {x: -110, y: 35}])
+    .style({color: [1, 0, 0], size: [10]});
 ```
+![points feature example](https://raw.githubusercontent.com/jbeezley/Geojs-source/master/img/points.png "geo.pointFeature")
 
 ## Objects and events
 
