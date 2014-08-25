@@ -13,7 +13,7 @@ open source and hosted at https://github.com/OpenGeoscience/geojs.
 GeoJS  is supported by a hierarchy of classes which define basic interfaces for the objects used
 in the API.
 
-# Maps
+## Maps
 
 The entry point for developer interaction with the API is the `geo.map` class.  As with most object
 constructors in GeoJS, the map constructor takes an object containing optional parameters.
@@ -39,7 +39,7 @@ for converting to and from pixel coordinates and geographic coordinates.
 {x: -100, y: 40}
 ```
 
-# Layers and renderers
+## Layers and renderers
 
 A layer is an abstract representation of content visible to the user.  The core class
 `geo.layer` simply defines the interface that layer must implement to be used in a map.  
@@ -49,7 +49,7 @@ The layers are instantiated by the map object
 
 
 
-# Objects and events
+## Objects and events
 
 The lowest level class that all other classes inherit from is the core `geo.object` which
 provides all objects with a timekeeping mechanism as well as providing the interface for
@@ -63,13 +63,13 @@ events that originated from a different branch.
 
 
 
-# Features
+## Features
 
 
-# Testing
+## Testing
 
 
-# Future
+## Future
 
 
 # Applications
