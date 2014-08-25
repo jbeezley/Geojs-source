@@ -60,9 +60,12 @@ for features that must have custom behavior with map navigation.
 
 Along with each layer is a renderer, which is responsible for actually drawing the features.
 Every layer has exactly one renderer and every renderer has exactly one layer.  Renderers
-currently come in two varieties, `geo.vglRenderer` and `geo.d3Renderer`.  
+currently come in two varieties, `geo.vglRenderer` and `geo.d3Renderer`.  The vgl renderer
+draws features in a wegGL context via the dependent [vgl module][], while the d3 renderer
+draws features inside an SVG element using the [d3 library][].  Both renderers have the same
+top level API, but also contain hooks to obtain low level contexts for advanced usage.
 
-The layers are instantiated by the map object
+The layers are instantiated directly by the map object
 
 
 
@@ -91,3 +94,6 @@ events that originated from a different branch.
 
 # Applications
 
+
+[vgl module]: https://github.com/OpenGeoscience/vgl/ "vgl"
+[d3 library]: http://d3js.org/ "d3js"
