@@ -60,8 +60,9 @@ for features that must have custom behavior with map navigation.
 Along with each layer is a renderer, which is responsible for actually drawing the features.
 Every layer has exactly one renderer and every renderer has exactly one layer.  Renderers
 currently come in two varieties, `geo.vglRenderer` and `geo.d3Renderer`.  The vgl renderer
-draws features in a wegGL context via the dependent [vgl module][], while the d3 renderer
-draws features inside an SVG element using the [d3 library][].  Both renderers have the same
+draws features in a wegGL context via the dependent vgl module[^vgl],
+while the d3 renderer
+draws features inside an SVG element using the d3 library[^d3].  Both renderers have the same
 top level API, but also contain hooks to obtain low level contexts for advanced usage.
 
 In order to draw and use a map object a special layer called a *reference layer* must be
@@ -104,14 +105,16 @@ which events are propagated.  All events in the scene tree first propagate up th
 parent to parent until it reaches the root node.  Once the event reaches the root, the node
 calls its own handlers and then triggers the event on all of its children.  Parent nodes can
 block events from propagating up the scene tree as well as prevent its children from receiving
-events that originated from a different branch.  The scene tree event system is what allows
-events to *propagate* through layers and have them react together.  This sort of event
-propagation is not provided by the browser's own event system.
+events that originated from a different branch.  The scene tree event model is what allows
+events to *propagate* through layers and have them react together.
 
 
 ## Testing
 
-GeoJS is released with a 
+GeoJS is released with a broad range of unit tests ensuring not only that changes do not
+break API calls, but that rendering style and behavior stay consistent as well.  There are
+several unit test frameworks from Jasmine[^Jasmine] tests run with PhantomJS[^PhantomJS] to 
+end-to-end multi-browser tests run with [^Selenium].
 
 
 ## Future
@@ -123,6 +126,9 @@ GeoJS is released with a
 
 *Climate pipes, custom tile server, grits?*
 
-[GeoJS]: https://github.com/OpenGeoscience/geojs/ "geojs"
-[vgl module]: https://github.com/OpenGeoscience/vgl/ "vgl"
-[d3 library]: http://d3js.org/ "d3js"
+
+[^vgl]: https://github.com/OpenGeoscience/vgl/
+[^d3]: http://d3js.org/
+[^Jasmine]: http://jasmine.github.io/
+[^PhantomJS]: http://phantomjs.org/
+[^Selenium]: http://docs.seleniumhq.org/
