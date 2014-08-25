@@ -32,8 +32,7 @@ for converting to and from pixel coordinates and geographic coordinates.
 # Get the pixel coordinates of the point 40° N, 100° W
 >>> map.gcsToDisplay({x: -100, y: 40})
 {x: 100, y: 100}
-```
-```javascript
+
 # Get the geographic coordinates of the pixel at (100, 100)
 >>> map.displayToGcs({x: 100, y: 100})
 {x: -100, y: 40}
