@@ -1,7 +1,8 @@
 
 # Introducing GeoJS
 
-GeoJS is a new javascript library for visualizing geospatial data in the browser.  It is completely open source and hosted at https://github.com/OpenGeoscience/geojs.
+GeoJS is a new javascript library for visualizing geospatial data in the browser.  It is completely 
+open source and hosted at https://github.com/OpenGeoscience/geojs.
 * History
 * Difference from openlayers, google maps, leaflet…
 * Projects and funding?
@@ -9,11 +10,13 @@ GeoJS is a new javascript library for visualizing geospatial data in the browser
 
 # API Overview
 
-GeoJS  is supported by a hierarchy of classes which define basic interfaces for the objects used in the API.
+GeoJS  is supported by a hierarchy of classes which define basic interfaces for the objects used
+in the API.
 
 # Maps
 
-The entry point for developer interaction with the API is the `geo.map` class.  As with most object constructors in GeoJS, the map constructor takes an object containing optional parameters.
+The entry point for developer interaction with the API is the `geo.map` class.  As with most object
+constructors in GeoJS, the map constructor takes an object containing optional parameters.
 ```javascript
 map = geo.map(
     {
@@ -23,8 +26,8 @@ map = geo.map(
     }
 );
 ```
-The map serves as the root of the scene tree and contains georeferencing functions that can be used for converting
-to and from pixel coordinates and geographic coordinates.
+The map serves as the root of the scene tree and contains georeferencing functions that can be used
+for converting to and from pixel coordinates and geographic coordinates.
 ```javascript
 # Get the pixel coordinates of the point 40° N, 100° W
 >>> map.gcsToDisplay({x: -100, y: 40})
@@ -38,8 +41,8 @@ to and from pixel coordinates and geographic coordinates.
 
 # Layers and renderers
 
-A layer is an abstract representation of content visible to the user.  The core class `geo.layer` simply defines the
-interface that layer must implement to be used in a map.  
+A layer is an abstract representation of content visible to the user.  The core class
+`geo.layer` simply defines the interface that layer must implement to be used in a map.  
 
 The map object can be used to generate layers containing content visible to the end user.  
 The layers are instantiated by the map object
@@ -48,7 +51,15 @@ The layers are instantiated by the map object
 
 # Objects and events
 
-The lowest level class that all other classes inherit from is the core `geo.object` which provides all objects with a timekeeping mechanism as well as providing the interface for the internal events system.  Another important base class is the `geo.sceneObject` from which all drawable objects are derived.  The `sceneObject` defines a tree structure through which events are propagated.  All events in the scene tree first propagate up the tree from parent to parent until it reaches the root node.  Once the event reaches the root, the node calls its own handlers and then triggers the event on all of its children.  Parent nodes can block events from propagating up the scene tree as well as prevent its children from receiving events that originated from a different branch.
+The lowest level class that all other classes inherit from is the core `geo.object` which
+provides all objects with a timekeeping mechanism as well as providing the interface for
+the internal events system.  Another important base class is the `geo.sceneObject` from
+which all drawable objects are derived.  The `sceneObject` defines a tree structure through
+which events are propagated.  All events in the scene tree first propagate up the tree from
+parent to parent until it reaches the root node.  Once the event reaches the root, the node
+calls its own handlers and then triggers the event on all of its children.  Parent nodes can
+block events from propagating up the scene tree as well as prevent its children from receiving
+events that originated from a different branch.
 
 
 
