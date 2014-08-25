@@ -85,8 +85,9 @@ the map object with an optional parameter specifying the target renderer.
 layer = map.createLayer("feature", {renderer: "d3Renderer"});
 ```
 Feature layers contain an interface to create feature objects, which are sets of drawable
-shapes.  Some of the basic features currently implemented are as follows:
-1. `point`: One or more circles centered around an array of positions.
+shapes.  Out of necessity, each feature type has its own API for setting coordinate positions
+and rendering styles, but the general scheme is roughly consistent with the following example.
+
 ```javascript
 layer.createFeature("point")
     .positions([{x: -100, y: 40}, {x: -110, y: 35}])
