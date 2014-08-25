@@ -10,7 +10,7 @@ open source and hosted at https://github.com/OpenGeoscience/geojs.
 
 # API Overview
 
-GeoJS  is supported by a hierarchy of classes which define basic interfaces for the objects used
+GeoJS is supported by a hierarchy of classes which define basic interfaces for the objects used
 in the API.
 
 ## Maps
@@ -104,19 +104,25 @@ which events are propagated.  All events in the scene tree first propagate up th
 parent to parent until it reaches the root node.  Once the event reaches the root, the node
 calls its own handlers and then triggers the event on all of its children.  Parent nodes can
 block events from propagating up the scene tree as well as prevent its children from receiving
-events that originated from a different branch.
-
-
+events that originated from a different branch.  The scene tree event system is what allows
+events to *propagate* through layers and have them react together.  This sort of event
+propagation is not provided by the browser's own event system.
 
 
 ## Testing
 
+GeoJS is released with a 
+
 
 ## Future
+
+*Maybe selection api, 2.5D, any other crazy plans for the future*
 
 
 # Applications
 
+*Climate pipes, custom tile server, grits?*
 
+[GeoJS]: https://github.com/OpenGeoscience/geojs/ "geojs"
 [vgl module]: https://github.com/OpenGeoscience/vgl/ "vgl"
 [d3 library]: http://d3js.org/ "d3js"
