@@ -38,13 +38,30 @@ for converting to and from pixel coordinates and geographic coordinates.
 >>> map.displayToGcs({x: 100, y: 100})
 {x: -100, y: 40}
 ```
+Finally, the map provides a uniform looping mechanism for drawing syncronised animations within
+its layers.  Running an animation from a map containing animatable layers is a simple matter of
+calling `map.animate()`.
+
 
 ## Layers and renderers
 
-A layer is an abstract representation of content visible to the user.  The core class
-`geo.layer` simply defines the interface that layer must implement to be used in a map.  
+A layer is an abstract representation of content visible to the user.  Layers are like transparent
+sheets placed in a stack.  Visible features on one layer will cover features on layers below.
+In addition, only the top layer of the stack can directly receive mouse events.  The event
+handling interface described below allows layers to respond to mouse events and map navigation
+in a uniform manner.
 
-The map object can be used to generate layers containing content visible to the end user.  
+In terms of responding to map navigation events such as panning.  Layers come in two varieties
+either *sticky* or *non-sticky*.  A sticky layer will automatically transform features contained
+within it to maintain its position relative to the map.  This is useful for geographic features
+such as markers placed at a specific latitide/longitude.  A non-sticky layer will not automatically
+transform.  One might use this sort of layer for legends that remain fixed on the screen, or
+for features that must have custom behavior with map navigation.
+
+Along with each layer is a renderer, which is responsible for actually drawing the features.
+Every layer has exactly one renderer and every renderer has exactly one layer.  Renderers
+currently come in two varieties, `geo.vglRenderer` and `geo.d3Renderer`.  
+
 The layers are instantiated by the map object
 
 
