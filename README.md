@@ -65,9 +65,33 @@ draws features in a wegGL context via the dependent [vgl module][], while the d3
 draws features inside an SVG element using the [d3 library][].  Both renderers have the same
 top level API, but also contain hooks to obtain low level contexts for advanced usage.
 
-The layers are instantiated directly by the map object
+In order to draw and use a map object a special layer called a *reference layer* must be
+attached to the map.  The reference layer is responsible for specifying the coordinate
+system and translating mouse and keyboard events into map navigation events.  At present,
+only one reference layer class exists in geoJS, `geo.osmLayer`.  This layer
+fetches tiles from the open street maps tile server to render tiles on demand.  This layer
+is created as follows:
+```javascript
+osm = map.createLayer("osm");
+```
 
 
+## Feature layers
+
+Feature layers are a specialization of a layer that allows the user to create features like
+circles, polygons, etc. over the map.  The feature layer object is instantiated directly from
+the map object with an optional parameter specifying the target renderer.
+```javascript
+layer = map.createLayer("feature", {renderer: "d3Renderer"});
+```
+Feature layers contain an interface to create feature objects, which are sets of drawable
+shapes.  Some of the basic features currently implemented are as follows:
+1. `point`: One or more circles centered around an array of positions.
+```javascript
+layer.createFeature("point")
+    .positions([{x: -100, y: 40}])
+    .style({"color": [1, 0, 0]});
+```
 
 ## Objects and events
 
@@ -82,8 +106,6 @@ block events from propagating up the scene tree as well as prevent its children 
 events that originated from a different branch.
 
 
-
-## Features
 
 
 ## Testing
