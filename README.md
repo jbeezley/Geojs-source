@@ -37,7 +37,7 @@ for converting to and from pixel coordinates and geographic coordinates.
 >>> map.displayToGcs({x: 100, y: 100})
 {x: -100, y: 40}
 ```
-Finally, the map provides a uniform looping mechanism for drawing syncronised animations within
+Finally, the map provides a uniform looping mechanism for drawing synchronized animations within
 its layers.  Running an animation from a map containing animatable layers is a simple matter of
 calling `map.animate()`.
 
@@ -53,7 +53,7 @@ in a uniform manner.
 In terms of responding to map navigation events such as panning.  Layers come in two varieties
 either *sticky* or *non-sticky*.  A sticky layer will automatically transform features contained
 within it to maintain its position relative to the map.  This is useful for geographic features
-such as markers placed at a specific latitide/longitude.  A non-sticky layer will not automatically
+such as markers placed at a specific latitude/longitude.  A non-sticky layer will not automatically
 transform.  One might use this sort of layer for legends that remain fixed on the screen, or
 for features that must have custom behavior with map navigation.
 
