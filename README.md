@@ -114,12 +114,12 @@ events to *propagate* through layers and have them react together.
 GeoJS is released with a broad range of unit tests ensuring not only that changes do not
 break API calls, but that rendering style and behavior stay consistent as well.  There are
 several unit test frameworks from Jasmine[^Jasmine] tests run with PhantomJS[^PhantomJS] to 
-end-to-end multi-browser tests run with [^Selenium].
-
-
-## Future
-
-*Maybe selection api, 2.5D, any other crazy plans for the future*
+end-to-end multi-browser tests run with [^Selenium].  The tests frameworks allow the developers
+to add new tests easily, often just by adding a jasmine spec in a new file.  Each test is
+automatically integrated into the build and dashboard all with code coverage reporting
+builtin.  The master branch is run nightly on dashboard machines reporting to CDash[^cdash].
+Continuous integration testing is performed for every push using Travis-CI[^travis], whose
+results are also summarized by CDash.
 
 
 # Applications
@@ -127,8 +127,15 @@ end-to-end multi-browser tests run with [^Selenium].
 *Climate pipes, custom tile server, grits?*
 
 
+## Future
+
+*Maybe selection api, 2.5D, any other crazy plans for the future*
+
+
 [^vgl]: https://github.com/OpenGeoscience/vgl/
 [^d3]: http://d3js.org/
 [^Jasmine]: http://jasmine.github.io/
 [^PhantomJS]: http://phantomjs.org/
 [^Selenium]: http://docs.seleniumhq.org/
+[^cdash]: http://my.cdash.org/index.php?project=geojs
+[^travis]: https://travis-ci.org/
