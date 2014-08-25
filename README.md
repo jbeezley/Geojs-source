@@ -34,7 +34,7 @@ for converting to and from pixel coordinates and geographic coordinates.
 {x: 100, y: 100}
 ```
 ```javascript
-# Get the geographics coordinates of the pixel at (100, 100)
+# Get the geographic coordinates of the pixel at (100, 100)
 >>> map.displayToGcs({x: 100, y: 100})
 {x: -100, y: 40}
 ```
